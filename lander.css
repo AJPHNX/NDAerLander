@@ -1,9 +1,13 @@
 
 /*------- General styling------------- */
 .app{
+    position: relative;
+    top:0;
     font-family: "futura",-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
+    display: block;
+   
   }
 .container {
     position: relative;
@@ -84,8 +88,13 @@
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
     background-color: #fff;
     padding-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    min-width: 700px;
+    min-height: 760px;
   }
   
   code {
@@ -140,6 +149,7 @@
 
 /*------- Lander styling------------- */
 .wrap{
+    position: relative;
     display: flex;
     flex-direction: column;  
 }
@@ -173,6 +183,17 @@
 .type-wrapper text{
     /* color: #757575; */
 }
+
+canvas {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  animation: fade-in-out 3s  infinite;
+  z-index: 1;
+}
 .grad_div{
     position: absolute;
     display: flex;
@@ -191,6 +212,7 @@
 
 .bottom-link{
     align-items: center;
+    animation: fade-in-out 4s  infinite ease-in;
 }
 /*------- Lander styling------------- */
 
@@ -210,7 +232,7 @@
     padding: 2em;
 }
 .footer{
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -219,6 +241,7 @@
   bottom: 0px;
   height: 50px;
   width: 95%;
+  padding-top: 1em;
 }
 .bottom-right{
   position: relative;
@@ -411,37 +434,50 @@ span {
 /*------- line Glitch------------- */
 
 /* ------------Basic Animations--------- */
-.term-flick{
+.term-bg{
   animation: term-flick2 6.5s ease-in-out infinite;
 }
-@keyframes term-flick2 {
+.term-text{
+  animation: term-text 6.5s step-end infinite alternate;
+  z-index: 99;
+}
+.term-text a{
+padding: .5em;
+}
+@keyframes term-text {
   0%,100%{
-    background-color: #fff;
-    color: #757575;
+    /* background-color: rgba(255, 255, 255, 0); */
+    color: #757575; 
+    text-shadow:
+    0.025em 0.04em 0 #fffc00;
   }
   20%{
-    background-color: #000;
+    /* background-color: rgba(0, 0, 0, 0.074); */
     color: limegreen;
   }
-  /* 30%{
-    background-color: #fff;
-    color: #757575;
-  } */
-  40%{
-    background-color: #000;
+  30%{
+    /* background-color: #fff; */
     color: limegreen;
+  }
+  40%{
+    /* background-color: #000; */
+    color: limegreen;
+    text-shadow:  -0.03em -0.04em 0 #fc00ff,
+    0.025em 0.04em 0 #00ff04;
   }
   /* 45%{
     background-color: #fff;
     color: #757575;
   } */
   55%{
-    background-color: #000;
-    color: limegreen;
+    /* background-color: #000; */
+    color: #868686;
+    text-shadow: 0.05em 0 0 #ffe70b,0.025em 0.04em 0 #00ff04;
   }
   60%{
-    background-color: #000;
-    color: limegreen;
+    /* background-color: rgba(0, 0, 0, 0.224); */
+    color: #868686;
+    text-shadow: 0.025em 0.04em 5 #00ff04;
     /* background-color: #fff;
     color: #757575; */
   }
@@ -542,6 +578,14 @@ span {
 @keyframes blink2 {
     50% {
         border-color: transparent
+    }
+}
+@keyframes fade-in-out {
+    0%,100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.1;
     }
 }
 
