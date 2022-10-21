@@ -209,17 +209,40 @@
 .pad-2em {
     padding: 2em;
 }
-.bottom-right{
+.footer{
   position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: none;
   bottom: 0px;
-  right: 0px;
+  height: 50px;
+  width: 95%;
+}
+.bottom-right{
+  position: relative;
+  /* bottom: 0px;
+  right: 0px; */
+  padding: .5em;
+}
+.bottom-center{
+  position: relative;
+  /* bottom: 0px;
+  left: 50vw; */
   padding: .5em;
 }
 .bottom-left{
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
+  position: relative;
+  /* bottom: 0px;
+  left: 0px; */
   padding: .5em;
+}
+span {
+  display: inline-block;
+}
+.flip-h {
+  transform: scale(-1, 1);
 }
 /*------- Patches ------------- */
 
